@@ -1,97 +1,90 @@
 #include "Block.h"
-#include <stdio.h> //puts, gets
 
 
-void CBlock::B_move(char inputKey)
+void CBlock::Input(char inputKey)
 {
 	//1. 움직이기전에 충돌검사
 	//2. 변한 상태 재출력
 	switch (inputKey) {
 	case KEY_UP: //회전
-		printB(false);
-		B_rot_stat = ++B_rot_stat % 4;
-		printB(true);
+		Print(false);
+		m_iRotation = ++m_iRotation % 4;
+		Print(true);
 		break;
 	case KEY_LEFT: //좌로
-		printB(false);
-		--B_locX;
-		printB(true);
+		Print(false);
+		--m_tPos.x;
+		Print(true);
 		break;
 	case KEY_RIGHT: //우로
-		printB(false);
-		++B_locX;
-		printB(true);		
+		Print(false);
+		++m_tPos.x;
+		Print(true);		
 		break;
 	case KEY_DOWN: //하강
-		printB(false);
-		++B_locY;
-		printB(true);
+		Print(false);
+		++m_tPos.y;
+		Print(true);
 		break;
 	}
 }
 
-void CBlock::printB(bool show)
+void CBlock::Print(bool show)
 {
 	for (int j = 0; j < 4; j++) {
 		for (int i = 0; i < 4; i++) {
-			gotoxy(TX + (block[B_type][B_rot_stat][i][j] + B_locX) * 2, TY + block[B_type][B_rot_stat][i][j] + B_locY);
+			gotoxy(TX + (block[m_iType][m_iRotation][i][j] + m_tPos.x) * 2, TY + block[m_iType][m_iRotation][i][j] + m_tPos.y);
 			if(show) puts("■");
 			else puts("  ");
 		}
 	}
 }
 
-void CBlock::mergeB()
+void CBlock::Merge()
 {
 }
 
-int CBlock::getBtype()
+int CBlock::GetType()
 {
-	return this->B_type;
+	return m_iType;
 }
 
-void CBlock::setBtype(int type)
+void CBlock::SetType(int type)
 {
-	B_type = type;
+	m_iType = type;
 }
 
-int CBlock::getBrotstat()
+int CBlock::GetRotation()
 {
-	return this->B_rot_stat;
+	return this->m_iRotation;
 }
 
-void CBlock::setBrotstat(int stat)
+void CBlock::SetRotation(int stat)
 {
-	B_rot_stat = stat;
+	m_iRotation = stat;
 }
 
-int CBlock::getBlocX()
+int CBlock::GetX()
 {
-	return this->B_locX;
+	return this->m_tPos.x;
 }
 
-void CBlock::setBlocX(int loc)
+void CBlock::SetX(int loc)
 {
-	B_locX = loc;
+	m_tPos.x = loc;
 }
 
-int CBlock::getBlocY()
+int CBlock::GetY()
 {
-	return this->B_locY;
+	return m_tPos.y;
 }
 
-void CBlock::setBlocY(int loc)
+void CBlock::SetY(int loc)
 {
-	B_locY = loc;
+	m_tPos.y = loc;
 }
 
-void CBlock::gotoxy(int x, int y)
-{
-	COORD pos = { x,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-}
-
-CBlock::CBlock() : B_locX(0), B_locY(0), B_type(0),B_rot_stat(0)
+CBlock::CBlock() : m_tPos(0, 0), m_iType(0),m_iRotation(0)
 {
 }
 

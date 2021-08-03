@@ -1,7 +1,7 @@
-#include "CTetrix.h"
-
+#include "Tetrix.h"
 
 int main() {
 	CTetrix Tet;
-	Tet.Play_tetrix();
+
+	Tet.Run();
 }

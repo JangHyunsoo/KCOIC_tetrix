@@ -22,9 +22,6 @@
     <Filter Include="소스 파일\Component\Block">
       <UniqueIdentifier>{d20f8e8d-8c2d-488d-8287-bb6f12e33f9f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Repo">
-      <UniqueIdentifier>{a782316d-b365-447d-a122-657a694b9b93}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Component\MoreFunction">
       <UniqueIdentifier>{cd105527-f127-4353-a18b-aa540c0e4d32}</UniqueIdentifier>
     </Filter>
@@ -33,16 +30,10 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="repo.cpp">
-      <Filter>소스 파일\Repo</Filter>
-    </ClCompile>
-    <ClCompile Include="Tetrix.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Block.cpp">
       <Filter>소스 파일\Component\Block</Filter>
     </ClCompile>
-    <ClCompile Include="CTetrix.cpp">
+    <ClCompile Include="Tetrix.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,14 +41,20 @@
     <ClInclude Include="resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Tetrix.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Block.h">
       <Filter>소스 파일\Component\Block</Filter>
     </ClInclude>
-    <ClInclude Include="CTetrix.h">
+    <ClInclude Include="Tetrix.h">
       <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Mecro.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
